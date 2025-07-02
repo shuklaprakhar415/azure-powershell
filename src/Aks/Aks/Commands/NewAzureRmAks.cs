@@ -35,7 +35,6 @@ using Microsoft.WindowsAzure.Commands.Utilities.Common;
 namespace Microsoft.Azure.Commands.Aks
 {
     [Cmdlet("New", ResourceManager.Common.AzureRMConstants.AzureRMPrefix + "AksCluster", DefaultParameterSetName = DefaultParamSet, SupportsShouldProcess = true)]
-    [GenericBreakingChangeWithVersion("The default value of -NodeVmSize will be changing from 'Standard_DS2_V2 (Linux), Standard_DS2_V3 (Windows)' to being dynamically selected by the AKS resource provider based on quota and capacity.", "14.0.0", "7.0.0")]
     [OutputType(typeof(PSKubernetesCluster))]
     public class NewAzureRmAks : CreateOrUpdateKubeBase
     {
@@ -176,7 +175,7 @@ namespace Microsoft.Azure.Commands.Aks
         [Parameter(Mandatory = false, HelpMessage = "The ID of the subnet which pods will join when launched.")]
         public string NodePodSubnetID { get; set; }
 
-        [Parameter(Mandatory = false, HelpMessage = "Whether to enalbe OIDC issuer feature.")]
+        [Parameter(Mandatory = false, HelpMessage = "Whether to enable OIDC issuer feature.")]
         public SwitchParameter EnableOidcIssuer { get; set; }
 
         private AcsServicePrincipal acsServicePrincipal;
